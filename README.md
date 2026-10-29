@@ -28,11 +28,12 @@ with Jekyll. It is not live yet.
   into a hamburger.
 - **Assets:** all images and PDFs from the old site, sorted into
   `assets/images/` by page and season.
-- **Sponsorship:** sponsors live in `_data/sponsors/2026.yml`. Logo size, name
-  size and logos per row are set once per level in `_data/sponsor_levels.yml`,
-  so each level is smaller than the one above it. Sponsors are stored per year,
-  so adding a year's sponsors to its robot page later only needs
-  `show_sponsors: true` on that page.
+- **Sponsorship:** sponsors are stored per season in
+  `_data/sponsors/<year>.yml` (currently only `2026.yml`). The Sponsorship page
+  always shows the newest year, and each season page lists its own year's
+  sponsors at the bottom. Logo size, name size and logos per row are set once
+  per level in `_data/sponsor_levels.yml`, so each level is smaller than the
+  one above it.
 - **Our Robots:** there's one file per season in `_robots/` for 2009–2026,
   served at the old URLs (`/2023-season.html`). The nine seasons the old site
   had (2015–2020 and 2022–2024) are fully filled in. The other nine are

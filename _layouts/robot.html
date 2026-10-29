@@ -109,10 +109,13 @@ layout: default
   {% include gallery.html folder=gallery_folder alt="Season highlight photo" %}
   {%- endif %}
 
-  {%- comment -%} Future: set `show_sponsors: true` once _data/sponsors/<year>.yml exists. {%- endcomment -%}
-  {%- if page.show_sponsors %}
+  {%- comment -%} Shown automatically when _data/sponsors/<year>.yml exists. {%- endcomment -%}
+  {%- assign sponsor_key = page.year | append: "" %}
+  {%- if site.data.sponsors[sponsor_key] %}
   <h2 class="season-heading">{{ page.year }} Sponsors</h2>
+  <div class="narrow" style="max-width: 760px">
   {% include sponsor-levels.html year=page.year %}
+  </div>
   {%- endif %}
 
   {%- assign newer = page.year | plus: 1 -%}

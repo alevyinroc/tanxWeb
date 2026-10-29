@@ -1,13 +1,28 @@
 {%- comment -%}
   Shows every sponsorship level for one season, highest level first.
   Usage:  {% include sponsor-levels.html year=2026 %}
+          {% include sponsor-levels.html %}                  newest season
+          {% include sponsor-levels.html show_year=true %}   adds a "2026 Season Sponsors" line
   Sponsors come from _data/sponsors/<year>.yml; level names, colors and logo
-  sizes come from _data/sponsor_levels.yml.
+  sizes come from _data/sponsor_levels.yml. Shows nothing if there is no file
+  for that year.
 {%- endcomment -%}
 {%- assign year_key = include.year | append: "" -%}
+{%- if year_key == "" -%}
+  {%- comment -%} No year given: use the newest _data/sponsors/<year>.yml {%- endcomment -%}
+  {%- assign newest = 0 -%}
+  {%- for pair in site.data.sponsors -%}
+    {%- assign y = pair[0] | plus: 0 -%}
+    {%- if y > newest %}{% assign newest = y %}{% endif -%}
+  {%- endfor -%}
+  {%- assign year_key = newest | append: "" -%}
+{%- endif -%}
 {%- assign sponsors = site.data.sponsors[year_key] -%}
 {%- if sponsors -%}
 <div class="sponsor-levels" markdown="0">
+{%- if include.show_year %}
+  <p class="sponsor-season">{{ year_key }} Season Sponsors</p>
+{%- endif %}
 {%- for level in site.data.sponsor_levels %}
   {%- if sponsors contains level.id %}
   {%- assign list = sponsors[level.id] %}

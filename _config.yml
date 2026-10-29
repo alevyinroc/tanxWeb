@@ -16,9 +16,6 @@ baseurl: ""
 team_email: tanxrobotics@gmail.com
 team_number: 3003
 
-# Season shown on the Sponsorship page (matches a file in _data/sponsors/)
-current_sponsor_year: 2026
-
 markdown: kramdown
 kramdown:
   # Lets you write Markdown inside HTML blocks such as <section> and <div>.

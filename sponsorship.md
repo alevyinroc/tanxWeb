@@ -11,11 +11,12 @@ banner:
   heading: Thank you to all of our sponsors!
 ---
 {%- comment -%}
-  Sponsor names and logos are NOT edited here. Edit _data/sponsors/<year>.yml
-  (the year shown is `current_sponsor_year` in _config.yml).
+  Sponsor names and logos are NOT edited here. This page always shows the
+  newest season in _data/sponsors/ (e.g. 2027.yml once it exists). Each
+  season's own sponsors also appear at the bottom of its robot page.
 {%- endcomment -%}
 <div class="narrow" style="max-width: 760px">
-{% include sponsor-levels.html year=site.current_sponsor_year %}
+{% include sponsor-levels.html show_year=true %}
 </div>
 
 <hr>

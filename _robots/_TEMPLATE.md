@@ -51,7 +51,6 @@ robot:
     - "**Bold text** works here too"
 
 # Season Highlights photos: drop images into assets/images/robots/2027/gallery/
-# Sponsors (future): set to true once _data/sponsors/2027.yml exists.
-show_sponsors: false
+# Sponsors: shown at the bottom automatically when _data/sponsors/2027.yml exists.
 ---
 Describe the game here in Markdown. This text appears under "The Game".

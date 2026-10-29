@@ -65,7 +65,12 @@ list or image):
 
 ### Update the sponsors
 
-Sponsors are kept per season in `_data/sponsors/<year>.yml`.
+Sponsors are kept per season in `_data/sponsors/<year>.yml`. Each file is
+used in two places, with nothing else to configure:
+
+- **Sponsorship page:** always shows the **newest** year's file.
+- **Season pages:** `/<year>-season.html` lists that year's sponsors at the
+  bottom. A season with no sponsor file just doesn't show the section.
 
 1. To start a new season, copy the latest file, e.g. `2026.yml` → `2027.yml`,
    and edit it. Each level (`platinum`, `gold`, `silver`, `bronze`, `nickel`)
@@ -81,18 +86,20 @@ Sponsors are kept per season in `_data/sponsors/<year>.yml`.
 2. Put logo files in `assets/images/sponsors/`. Use lowercase names with dashes
    (`acme-corp.png`). Transparent PNGs look best on the dark background; a
    white or light version of the logo is ideal.
-3. In `_config.yml`, set `current_sponsor_year: 2027`, then restart the preview.
+3. Restart the preview (`_data` files added while it's running may not be
+   picked up). The Sponsorship page switches to 2027 automatically, and 2026's
+   sponsors stay on the 2026 season page.
+4. To add a past season's sponsors, create that year's file the same way. It
+   only appears on that season's page, since it isn't the newest year.
+
+File names must be just the year (`2027.yml`); that's how the site matches
+sponsors to seasons and finds the newest one.
 
 **Logo size follows the sponsorship level** automatically: the maximum logo
 height and width for each level, the font size for name-only sponsors, and
 logos per row are set in `_data/sponsor_levels.yml`. Change sizes there, never
 on individual sponsors, so the levels stay consistent. To add or rename a level, edit that
 file too (the `id` must match the key used in the year files).
-
-**Future (sponsors on each robot page):** because sponsors are stored per year,
-a season page can show its own sponsors by adding `show_sponsors: true` to
-`_robots/<year>.md`, once `_data/sponsors/<year>.yml` exists. This is not
-turned on anywhere yet.
 
 ### Add or fill in a season / robot page
 

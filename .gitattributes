@@ -1,0 +1,10 @@
+# Keep line endings correct for each platform's scripts, whatever OS commits them.
+* text=auto
+*.bat text eol=crlf
+*.sh  text eol=lf
+
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.webp binary
+*.pdf binary

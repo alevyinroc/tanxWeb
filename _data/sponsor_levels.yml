@@ -1,0 +1,50 @@
+# Sponsorship levels, highest first. Each level's logos and names get smaller
+# as you go down the list.
+#
+#   id          - used as the key in _data/sponsors/<year>.yml
+#   title       - heading shown on the page
+#   color       - heading color
+#   logo_height - maximum logo height in pixels (wide logos are also capped
+#                 at logo_width pixels wide)
+#   logo_width  - maximum logo width in pixels
+#   name_size   - font size for sponsors listed by name (no logo)
+#   columns     - how many logos per row
+- id: platinum
+  title: Platinum Sponsors
+  color: "#a9e4f8"
+  logo_height: 160
+  logo_width: 420
+  name_size: 2.4em
+  columns: 2
+
+- id: gold
+  title: Gold Sponsors
+  color: "#e9cf76"
+  logo_height: 130
+  logo_width: 340
+  name_size: 2.1em
+  columns: 2
+
+- id: silver
+  title: Silver Sponsors
+  color: "#a1a1a1"
+  logo_height: 100
+  logo_width: 280
+  name_size: 1.8em
+  columns: 2
+
+- id: bronze
+  title: Bronze Sponsors
+  color: "#f8c7a9"
+  logo_height: 60
+  logo_width: 240
+  name_size: 1.4em
+  columns: 1
+
+- id: nickel
+  title: Nickel Sponsors
+  color: "#a1a1a1"
+  logo_height: 40
+  logo_width: 160
+  name_size: 1em
+  columns: 1

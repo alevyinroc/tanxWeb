@@ -1,0 +1,29 @@
+{%- comment -%}
+  Full-width banner under the menu. Set it in a page's front matter:
+
+    banner:
+      image: /assets/images/backgrounds/my-photo.jpg   # background photo (optional)
+      color: "#181818"                                 # background color (optional)
+      height: 500                                      # minimum height in px (default 400)
+      position: 50% 30%                                # which part of the photo to keep in view
+      size: cover                                      # CSS background-size (default cover)
+      logo: /assets/images/site/tanx-badge.png         # image shown in the middle (optional)
+      logo_width: 120                                  # px (optional)
+      heading: Thank you to all of our sponsors!       # text shown in the middle (optional)
+      class: home-banner                               # extra CSS class (optional)
+{%- endcomment -%}
+{%- assign b = include.banner -%}
+<div class="banner {{ b.class }}" style="min-height: {{ b.height | default: 400 }}px;
+  {%- if b.color %} background-color: {{ b.color }};{% endif %}
+  {%- if b.image %} background-image: url('{{ b.image | relative_url }}');{% endif %}
+  {%- if b.position %} background-position: {{ b.position }};{% endif %}
+  {%- if b.size %} background-size: {{ b.size }};{% endif %}">
+  <div class="banner-inner">
+    {%- if b.logo %}
+    <img src="{{ b.logo | relative_url }}" alt="{{ b.logo_alt | default: '' }}"{% if b.logo_width %} style="width: {{ b.logo_width }}px"{% endif %}>
+    {%- endif %}
+    {%- if b.heading %}
+    <h1>{{ b.heading }}</h1>
+    {%- endif %}
+  </div>
+</div>

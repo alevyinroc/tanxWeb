@@ -1,0 +1,19 @@
+<header id="header-wrap">
+  <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Show menu">
+  <label for="nav-toggle" class="nav-trigger" aria-hidden="true">
+    <span></span><span></span><span></span>
+  </label>
+  <div id="logo">
+    <a href="{{ '/' | relative_url }}"><span class="site-title">{{ site.title }}</span></a>
+  </div>
+  <nav id="nav" aria-label="Main">
+    <ul>
+      {%- for item in site.data.navigation %}
+      {%- assign active = false %}
+      {%- if page.url == item.url %}{% assign active = true %}{% endif %}
+      {%- if page.nav_section == item.url %}{% assign active = true %}{% endif %}
+      <li{% if active %} class="active"{% endif %}><a href="{{ item.url | relative_url }}"{% if active %} aria-current="page"{% endif %}>{{ item.title }}</a></li>
+      {%- endfor %}
+    </ul>
+  </nav>
+</header>

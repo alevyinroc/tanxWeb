@@ -1,0 +1,45 @@
+{%- comment -%}
+  Shows every sponsorship level for one season, highest level first.
+  Usage:  {% include sponsor-levels.html year=2026 %}
+  Sponsors come from _data/sponsors/<year>.yml; level names, colors and logo
+  sizes come from _data/sponsor_levels.yml.
+{%- endcomment -%}
+{%- assign year_key = include.year | append: "" -%}
+{%- assign sponsors = site.data.sponsors[year_key] -%}
+{%- if sponsors -%}
+<div class="sponsor-levels" markdown="0">
+{%- for level in site.data.sponsor_levels %}
+  {%- if sponsors contains level.id %}
+  {%- assign list = sponsors[level.id] %}
+  {%- assign with_logo = list | where_exp: "s", "s.logo" %}
+  {%- assign names_only = list | where_exp: "s", "s.logo == nil" %}
+  <div class="sponsor-level sponsor-level--{{ level.id }}">
+    <h2 style="color: {{ level.color }}">{{ level.title }}</h2>
+    {%- if with_logo.size > 0 %}
+    <div class="sponsor-logos" style="grid-template-columns: repeat({{ level.columns | default: 2 }}, 1fr)">
+      {%- for s in with_logo %}
+      <div class="sponsor-item">
+        {% if s.url %}<a href="{{ s.url }}" target="_blank" rel="noopener">{% endif -%}
+        <img src="{{ s.logo | relative_url }}" alt="{{ s.name | escape }}" title="{{ s.name | escape }}" loading="lazy"
+             style="max-height: {{ level.logo_height }}px; max-width: min({{ level.logo_width }}px, 100%);">
+        {%- if s.url %}</a>{% endif %}
+        {%- if s.note %}<div class="sponsor-note">{{ s.note }}</div>{% endif %}
+      </div>
+      {%- endfor %}
+    </div>
+    {%- endif %}
+    {%- if names_only.size > 0 %}
+    <div class="sponsor-names">
+      {%- for s in names_only %}
+      <div class="sponsor-name" style="font-size: {{ level.name_size }}">
+        {%- if s.url %}<a href="{{ s.url }}" target="_blank" rel="noopener">{{ s.name }}</a>{% else %}{{ s.name }}{% endif -%}
+      </div>
+      {%- if s.note %}<div class="sponsor-note">{{ s.note }}</div>{% endif %}
+      {%- endfor %}
+    </div>
+    {%- endif %}
+  </div>
+  {%- endif %}
+{%- endfor %}
+</div>
+{%- endif -%}

@@ -1,0 +1,127 @@
+---
+layout: default
+---
+{%- comment -%}
+  Season / robot page. Everything comes from the front matter of the file in
+  _robots/<year>.md — see _robots/_TEMPLATE.md for every available field.
+  The Markdown body of that file is shown under "The Game".
+{%- endcomment -%}
+{%- assign gallery_folder = "/assets/images/robots/" | append: page.year | append: "/gallery/" -%}
+{%- assign photos = site.static_files | where_exp: "f", "f.path contains gallery_folder" -%}
+{%- assign game_text = content | strip_html | strip -%}
+<section class="section section--theme">
+<div class="container">
+
+  {%- if page.placeholder %}
+  <div class="placeholder-note">
+    <p><strong>We're still working on this page.</strong></p>
+    <p>Information about our {{ page.year }} robot, the game, and how we did will be added soon.</p>
+    {%- if page.menu_image %}
+    <img class="img-center" src="{{ page.menu_image | relative_url }}" alt="Team 3003's {{ page.year }} robot" style="max-height: 360px">
+    {%- endif %}
+  </div>
+  {%- endif %}
+
+  {%- if page.events or page.events_image or page.events_video or page.links or page.events_note %}
+  <h2 class="season-heading">Events</h2>
+  {%- if page.events_note %}
+  <div class="text-center">{{ page.events_note | markdownify }}</div>
+  {%- endif %}
+  <div class="cols">
+    {%- if page.events %}
+    <div>
+      {%- for e in page.events %}
+      <div class="event">
+        <span class="event-name">{{ e.name }}</span>
+        {%- if e.dates %}{{ e.dates }}<br>{% endif %}
+        {%- if e.result %}{{ e.result }}<br>{% endif %}
+        {%- if e.awards %}
+        <div class="event-awards">
+          <span class="event-awards-title">Awards</span>
+          {%- for a in e.awards %}{{ a }}<br>{% endfor %}
+        </div>
+        {%- endif %}
+      </div>
+      {%- endfor %}
+    </div>
+    {%- endif %}
+    {%- if page.events_image %}
+    <div class="text-center"><img src="{{ page.events_image | relative_url }}" alt="{{ page.year }} season" loading="lazy"></div>
+    {%- endif %}
+    {%- if page.events_video %}
+    <div>
+      <div class="video"><iframe src="https://www.youtube.com/embed/{{ page.events_video }}" title="{{ page.year }} match video" loading="lazy" allowfullscreen></iframe></div>
+    </div>
+    {%- endif %}
+  </div>
+  {%- if page.links %}
+  <div class="buttons">
+    {%- for l in page.links %}
+    <p><a class="button button--highlight" href="{{ l.url }}" target="_blank" rel="noopener">{{ l.text }}</a></p>
+    {%- endfor %}
+  </div>
+  {%- endif %}
+  {%- endif %}
+
+  {%- if game_text != "" or page.field_image or page.reveal_video %}
+  <h2 class="season-heading">The Game</h2>
+  <div class="game-description">
+{{ content }}
+  </div>
+  {%- if page.reveal_video %}
+  <div class="buttons"><p><a class="button button--highlight" href="{{ page.reveal_video }}" target="_blank" rel="noopener">Game Reveal Video</a></p></div>
+  {%- endif %}
+  {%- if page.field_image %}
+  <img class="img-center" src="{{ page.field_image | relative_url }}" alt="{{ page.game | default: page.year }} game field" loading="lazy">
+  {%- endif %}
+  {%- endif %}
+
+  {%- if page.robot %}
+  <h2 class="season-heading">Our Robot</h2>
+  <div class="cols cols--center">
+    {%- if page.robot.image %}
+    <div class="text-center"><img src="{{ page.robot.image | relative_url }}" alt="{{ page.robot.name | default: 'Our robot' }}" loading="lazy"></div>
+    {%- endif %}
+    {%- if page.robot.specs or page.robot.characteristics %}
+    <div class="robot-specs">
+      {%- if page.robot.specs %}
+      <dl>
+        {%- for spec in page.robot.specs %}
+        <dt>{{ spec[0] }}:</dt> <dd>{{ spec[1] }}</dd>
+        {%- endfor %}
+      </dl>
+      {%- endif %}
+      {%- if page.robot.characteristics %}
+      <strong>Characteristics:</strong>
+      <ul>
+        {%- for c in page.robot.characteristics %}
+        <li>{{ c | markdownify | remove: '<p>' | remove: '</p>' | strip }}</li>
+        {%- endfor %}
+      </ul>
+      {%- endif %}
+    </div>
+    {%- endif %}
+  </div>
+  {%- endif %}
+
+  {%- if photos.size > 0 %}
+  <h2 class="season-heading">Season Highlights</h2>
+  {% include gallery.html folder=gallery_folder alt="Season highlight photo" %}
+  {%- endif %}
+
+  {%- comment -%} Future: set `show_sponsors: true` once _data/sponsors/<year>.yml exists. {%- endcomment -%}
+  {%- if page.show_sponsors %}
+  <h2 class="season-heading">{{ page.year }} Sponsors</h2>
+  {% include sponsor-levels.html year=page.year %}
+  {%- endif %}
+
+  {%- assign newer = page.year | plus: 1 -%}
+  {%- assign older = page.year | minus: 1 %}
+  <hr>
+  <div class="cols text-center">
+    <div>{% if older >= 2009 %}<a href="{{ '/' | append: older | append: '-season.html' | relative_url }}">&larr; {{ older }} Season</a>{% endif %}</div>
+    <div><a href="{{ '/our-robots.html' | relative_url }}">All Robots</a></div>
+    <div>{% assign newer_page = site.robots | where: "year", newer | first %}{% if newer_page %}<a href="{{ newer_page.url | relative_url }}">{{ newer }} Season &rarr;</a>{% endif %}</div>
+  </div>
+</div>
+</section>

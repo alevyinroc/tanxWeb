@@ -1,0 +1,13 @@
+---
+layout: default
+---
+{%- comment -%}
+  Standard page: the Markdown content sits in one centered column.
+  Front matter `section_class` adds classes to the section, e.g.
+  `section_class: section--dark` (default background is the theme blue-gray).
+{%- endcomment -%}
+<section class="section {{ page.section_class | default: 'section--theme' }}">
+<div class="container">
+{{ content }}
+</div>
+</section>

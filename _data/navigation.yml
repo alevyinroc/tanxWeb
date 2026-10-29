@@ -1,0 +1,14 @@
+# Top navigation menu, in display order.
+# url must match the page's `permalink` front matter.
+- title: Home
+  url: /
+- title: Sponsorship
+  url: /sponsorship.html
+- title: Team Information
+  url: /team-information.html
+- title: Our Robots
+  url: /our-robots.html
+- title: Robotics Resources
+  url: /robotics-resources.html
+- title: Contact Us
+  url: /contact-us.html

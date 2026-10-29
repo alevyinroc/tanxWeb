@@ -28,3 +28,5 @@ As you work, keep notes of how things work, and what needs to be done to maintai
 Often, students will be working on Windows PCs with restricted user accounts, so if anything needs to be installed to run a local copy of the tools or website, they need to be installable into their user profiles, not the whole computer. There will also need to be scripts (batch or shell scripts) for doing local site builds and running the local server.
 
 Mentors may also be working on the site, using their own Macs or PCs.
+
+Setup, local preview scripts, and deployment are documented in README.md. How the site is structured and how to make common edits (sponsors, season pages, images), plus known content issues to verify, are in MAINTAINING.md. Keep both up to date.

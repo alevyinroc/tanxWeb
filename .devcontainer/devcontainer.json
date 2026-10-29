@@ -1,0 +1,17 @@
+// Lets you edit and preview the site in a browser with GitHub Codespaces —
+// nothing to install. On GitHub: Code > Codespaces > Create codespace on main,
+// then run ./serve.sh in the terminal and open the forwarded port 4000.
+{
+  "name": "TAN[X] website",
+  "image": "mcr.microsoft.com/devcontainers/ruby:3.3",
+  "forwardPorts": [4000, 35729],
+  "portsAttributes": {
+    "4000": { "label": "Site preview", "onAutoForward": "openPreview" }
+  },
+  "postCreateCommand": "./setup.sh",
+  "customizations": {
+    "vscode": {
+      "extensions": ["yzhang.markdown-all-in-one", "redhat.vscode-yaml"]
+    }
+  }
+}

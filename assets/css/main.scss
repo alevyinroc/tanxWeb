@@ -1,0 +1,433 @@
+---
+# Front matter (these dashes) tells Jekyll to compile this file from SCSS to CSS.
+---
+// TAN[X] site styles. Colors and fonts replicate the original Weebly theme.
+
+// ---- Colors -----------------------------------------------------------
+$bg:            #222930;  // page background (theme)
+$bg-alt:        #29333d;
+$bg-section:    #181818;  // darker "section" background used on most pages
+$border:        #394250;
+$link:          #8496b3;
+$link-hover:    #99afd1;
+$button:        #727f97;
+$text:          #ffffff;
+$text-muted:    #d5d5d5;
+$text-dim:      #818181;
+$text-on-light: #626262;
+$heading-light: #3f3f3f;
+$accent:        #da4444;  // TAN[X] red
+$accent-light:  #f8a9a9;
+$tab:           #515151;
+$tab-active:    #8d2424;
+
+// ---- Fonts ------------------------------------------------------------
+$font-ui:      'Montserrat', sans-serif;
+$font-title:   'Lato', sans-serif;
+$font-heading: 'Crimson Text', Georgia, serif;
+$font-body:    Arial, Helvetica, sans-serif;
+
+$container: 1024px;
+$tablet: 1024px;
+$phone: 767px;
+
+// ---- Base -------------------------------------------------------------
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  font: 16px/1 $font-ui;
+  background: $bg;
+  color: $text;
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; height: auto; border: 0; }
+a { color: $link; text-decoration: none; transition: color 150ms ease; }
+a:hover { color: $link-hover; }
+.container { margin: 0 auto; width: 100%; max-width: $container; }
+
+h1, h2, h3, h4 {
+  font-family: $font-heading;
+  font-weight: 400;
+  line-height: 1.2;
+  margin: 0 auto 0.75em;
+}
+h1 { font-size: 2.6em; }
+h2 { font-size: 2em; }
+h3 { font-size: 1.5em; }
+h4 { font-size: 1.25em; }
+.content h1, .content h2, .content h3, .content h4 { text-align: center; }
+.content strong { font-weight: 700; }
+
+p, .content li {
+  font-family: $font-body;
+  line-height: 1.75;
+}
+p { margin: 0 auto 1.5em; }
+.content ul, .content ol { padding-left: 3em; margin: 5px 0 1.5em; }
+.content li { margin: 3px 0 0; padding-left: 5px; }
+.content p a, .content li a { border-bottom: 1px solid $border; }
+.content p a:has(img) { border-bottom: 0; }
+hr {
+  border: 0;
+  border-top: 1px solid $border;
+  margin: 1.5em 0;
+}
+
+// ---- Header & navigation ----------------------------------------------
+#header-wrap {
+  text-align: center;
+  background: $bg;
+  border-bottom: 1px solid $border;
+  position: relative;
+}
+#logo {
+  padding: 1em 1em 0.5em;
+  font-size: 2.75em;
+  text-transform: uppercase;
+  a { color: $link; }
+  a:hover { color: $link-hover; }
+}
+.site-title { font-family: $font-title; font-weight: 300; }
+
+#nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+#nav li { display: inline-block; }
+#nav a {
+  display: block;
+  color: $link;
+  padding: 1em 0.75em;
+  font-size: 13px;
+}
+#nav a:hover, #nav li.active a { color: #fff; }
+
+// Hamburger (only shown on small screens). Uses a hidden checkbox so the
+// menu works without JavaScript.
+.nav-toggle { position: absolute; opacity: 0; pointer-events: none; }
+.nav-trigger { display: none; cursor: pointer; padding: 10px; }
+.nav-trigger span {
+  display: block;
+  height: 2px;
+  width: 22px;
+  margin: 0 auto 5px;
+  background: #fff;
+  &:last-child { margin-bottom: 0; }
+}
+
+// ---- Banners & sections -----------------------------------------------
+.banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: $bg-section;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+  border-bottom: 1px solid $border;
+  padding: 2em 1.75em;
+  img { display: block; margin: 0 auto 1em; max-height: 220px; width: auto; }
+  h1, h2 {
+    font-family: $font-ui;
+    font-weight: 700;
+    font-size: 2em;
+    color: #fff;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+    margin: 0;
+  }
+}
+
+.section {
+  background-color: $bg-section;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+  > .container { padding: 3em 3em 4em; }
+}
+.section--light {
+  background-color: #fff;
+  color: $text-on-light;
+  h1, h2, h3 { color: $heading-light; }
+  p { color: $text-on-light; }
+}
+.section--theme { background-color: $bg; }
+.section--fixed { background-attachment: fixed; }
+// Section that sits directly in <main> with no special background
+.content > .container { padding: 3em 3em 5em; }
+
+.text-center { text-align: center; }
+.lead { font-size: 1.3em; }
+.title-xl { font-size: 2.6em; font-weight: 700; }
+.title-lg { font-size: 2.1em; font-weight: 700; }
+.muted { color: $text-muted; }
+.accent { color: $accent; }
+
+// Simple responsive columns: <div class="cols">…<div>…</div>…</div>
+.cols {
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+  > * { flex: 1 1 0; min-width: 0; }
+  &.cols--center { align-items: center; }
+  &.cols--tight { gap: 10px; }
+}
+.col-40 { flex: 0 0 40% !important; }
+.col-60 { flex: 1 1 60% !important; }
+.narrow { max-width: 600px; margin: 0 auto; }
+
+.img-center { display: block; margin: 0 auto 10px; }
+figure { margin: 0 0 1.5em; text-align: center; }
+
+// ---- Buttons ----------------------------------------------------------
+.button, .content p a.button {
+  display: inline-block;
+  font-family: $font-ui;
+  font-size: 18px;
+  padding: 4px 27px;
+  color: $button;
+  border: 1px solid $button;
+  background: transparent;
+  transition: all 0.5s ease;
+  &:hover { background: $button; color: $bg; }
+}
+.button--highlight, .content p a.button--highlight {
+  background: #fff;
+  color: $bg;
+  border-color: #fff;
+  &:hover { background: transparent; color: #fff; border-color: #fff; }
+}
+.buttons { text-align: center; p { margin: 0 0 1em; } }
+
+// ---- Home page --------------------------------------------------------
+.home-banner { min-height: 750px; border-bottom: 0; }
+.home-diagonal {
+  // The background image draws the white diagonal at the bottom, so leave
+  // room for it under the text.
+  background-position: 0 89.5%;
+  min-height: 711px;
+  > .container { padding-bottom: 260px; }
+}
+
+// ---- Sponsors ---------------------------------------------------------
+.sponsor-level { text-align: center; padding: 0.5em 0 1em; }
+.sponsor-level + .sponsor-level { border-top: 1px solid $border; }
+.sponsor-level h2 { margin: 0.6em auto 0.8em; }
+.sponsor-logos {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  gap: 25px 50px;
+  margin-bottom: 1em;
+  img { display: block; width: auto; height: auto; margin: 0 auto; }
+  // an odd logo out at the end gets centered across the row
+  > :last-child:nth-child(odd) { grid-column: 1 / -1; }
+}
+.sponsor-names { margin: 0 0 1em; }
+.sponsor-name {
+  font-family: $font-heading;
+  font-weight: 700;
+  color: $text-muted;
+  line-height: 1.4;
+  margin: 0.2em 0;
+}
+.sponsor-note {
+  font-family: $font-body;
+  color: $text-muted;
+  font-size: 1.2em;
+  margin-top: 0.4em;
+}
+.sponsor-item { text-align: center; }
+
+// ---- Tabs (Team Information) ------------------------------------------
+.tabs-bar {
+  display: flex;
+  flex-wrap: wrap;
+  border-bottom: 1px solid #ccc;
+  margin-top: 2em;
+}
+.tabs-bar button {
+  font: bold 14px/60px $font-body;
+  color: #a8abac;
+  background: $tab;
+  border: 1px solid #ccc;
+  border-bottom: 0;
+  border-left: 0;
+  padding: 0 20px;
+  min-width: 19%;
+  cursor: pointer;
+  &:first-child { border-left: 1px solid #ccc; }
+  &.active { background: $tab-active; color: #fff; border-color: $tab-active; }
+}
+.tab-panel { padding: 30px 0 20px; }
+.tab-panel h3 {
+  font-family: $font-body;
+  font-weight: 700;
+  font-size: 1.25em;
+  text-align: left;
+  color: #fff;
+  margin: 1.5em 0 0.4em;
+}
+.tab-panel h4 {
+  font-family: $font-body;
+  font-weight: 700;
+  font-size: 1.05em;
+  text-align: left;
+  color: #e2e2e2;
+  margin: 1.25em 0 0.3em;
+}
+.tab-panel p, .tab-panel li { color: #e2e2e2; font-size: 0.95em; }
+.tab-panel p { margin-bottom: 1em; }
+// Before JavaScript runs, panels get a heading so the page still reads well.
+.tab-panel .tab-title { display: block; }
+.tabs-ready .tab-panel .tab-title { display: none; }
+.tabs-ready .tab-panel[hidden] { display: none; }
+
+// ---- Our Robots grid --------------------------------------------------
+.robot-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-top: 2em;
+}
+.robot-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 220px;
+  border: 0 !important;
+  img { max-height: 300px; width: auto; transition: transform 200ms ease; }
+  &:hover img { transform: scale(1.04); }
+}
+.robot-card--placeholder {
+  border: 1px dashed $border !important;
+  color: $link;
+  .robot-year { font-family: $font-ui; font-size: 2.5em; color: #fff; }
+  .robot-soon { font-size: 0.85em; margin-top: 0.5em; }
+}
+
+// ---- Season (robot) pages ---------------------------------------------
+.season-heading {
+  color: $accent;
+  border-top: 1px solid $border;
+  padding-top: 1em;
+  margin-top: 1em;
+}
+.season-heading:first-child { border-top: 0; margin-top: 0; }
+.event { margin-bottom: 1.5em; font-family: $font-body; line-height: 1.6; font-size: 0.95em; }
+.event-name { color: $accent-light; font-weight: 700; display: block; }
+.event-awards { margin-top: 0.3em; }
+.event-awards-title { text-decoration: underline; display: block; }
+.robot-specs { font-family: $font-body; line-height: 1.6; }
+.robot-specs dt { font-weight: 700; display: inline; }
+.robot-specs dd { display: inline; margin: 0; }
+.robot-specs dd::after { content: ""; display: block; }
+.game-description p { font-size: 1.2em; font-weight: 700; text-align: center; color: $text-muted; }
+.video {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%;
+  margin-bottom: 1em;
+  iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+}
+.placeholder-note {
+  border: 1px dashed $border;
+  padding: 2em;
+  text-align: center;
+  color: $text-muted;
+  font-family: $font-body;
+}
+
+// ---- Photo galleries --------------------------------------------------
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 10px;
+  a { display: block; border: 0 !important; }
+  img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
+    transition: opacity 150ms ease;
+  }
+  a:hover img { opacity: 0.85; }
+}
+
+// ---- Footer -----------------------------------------------------------
+#footer-wrap {
+  border-top: 1px solid $border;
+  font-size: 0.85em;
+  .container { padding: 3em 0; }
+}
+.footer-cols {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 50px;
+  > div { flex: 1; text-align: center; }
+  .footer-logo img { width: 92px; }
+}
+.social { display: inline-flex; gap: 10px; }
+.social a {
+  display: inline-flex;
+  color: $link;
+  &:hover { color: #fff; }
+  svg { width: 20px; height: 20px; fill: currentColor; }
+}
+
+// ---- Tablet -----------------------------------------------------------
+@media (max-width: $tablet) {
+  body { font-size: 15px; }
+  .container { padding: 0 40px; }
+  #logo { font-size: 2.25em; padding: 20px 60px 20px 20px; }
+  #header-wrap { display: flex; align-items: center; flex-wrap: wrap; }
+  #header-wrap #logo { flex: 1; }
+  .nav-trigger { display: block; padding-left: 30px; }
+  #nav { display: none; width: 100%; border-top: 1px solid $border; }
+  #nav li { display: block; }
+  #nav a { font-size: 1.15em; padding: 10px; }
+  .nav-toggle:checked ~ #nav { display: block; }
+  .nav-toggle:focus-visible + .nav-trigger { outline: 2px solid $link; }
+  p, .content li { line-height: 1.5; }
+  .robot-grid { grid-template-columns: repeat(2, 1fr); }
+  #footer-wrap .container { padding: 40px; }
+}
+
+// ---- Phone ------------------------------------------------------------
+@media (max-width: $phone) {
+  body { font-size: 14px; }
+  #logo { font-size: 1.4em; padding: 10px 20px 10px 10px; }
+  .nav-trigger { padding-left: 20px; }
+  .section > .container, .content > .container { padding: 2em 20px 3em; }
+  .banner { min-height: 220px !important; }
+  .home-banner { min-height: 300px !important; }
+  .home-diagonal { min-height: 0; > .container { padding-bottom: 140px; } }
+  .sponsor-logos { grid-template-columns: 1fr !important; }
+  .cols { flex-direction: column; gap: 1em; }
+  .col-40, .col-60 { flex: 1 1 auto !important; }
+  .robot-grid { grid-template-columns: 1fr; }
+  .title-xl { font-size: 2em; }
+  .lead { font-size: 1.15em; }
+  .footer-cols { flex-direction: column; gap: 20px; }
+  .tabs-bar button { flex: 1 1 50%; line-height: 1.3; padding: 12px 10px; }
+  .section--fixed { background-attachment: scroll; }
+}
+
+// ---- Robotics Resources -----------------------------------------------
+.resources p { font-size: 1.15em; }
+.resources p a { color: $accent; border-bottom: 0; }
+.resources p a:hover { color: $accent-light; }
+
+// 2x2 photo grid on the home page
+.photo-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  align-items: center;
+  img { display: block; width: 100%; }
+}

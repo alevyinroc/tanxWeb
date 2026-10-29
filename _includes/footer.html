@@ -1,0 +1,19 @@
+<footer id="footer-wrap">
+  <div class="container">
+    <div class="footer-cols">
+      <div>
+        <a class="button" href="{{ '/contact-us.html' | relative_url }}">Contact Us</a>
+      </div>
+      <div class="footer-logo">
+        <img src="{{ '/assets/images/site/tanx-badge.png' | relative_url }}" alt="TAN[X] FRC Team 3003 logo">
+      </div>
+      <div>
+        <div class="social">
+          {%- for s in site.data.social %}
+          <a href="{{ s.url }}"{% unless s.icon == 'mail' %} target="_blank" rel="noopener"{% endunless %} aria-label="{{ s.name }}" title="{{ s.name }}">{% include social-icon.html icon=s.icon %}</a>
+          {%- endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

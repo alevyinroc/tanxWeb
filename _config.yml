@@ -1,0 +1,60 @@
+# Site settings for the TAN[X] (FRC Team 3003) website.
+# NOTE: Jekyll only reads this file at startup. If you change it while
+# `serve` is running, stop the server (Ctrl+C) and start it again.
+
+title: "CANANDAIGUA FIRST ROBOTICS - TEAM 3003 TAN[X]"
+short_title: "TAN[X] Team 3003"
+description: >-
+  Team 3003 is a robotics team from Canandaigua, NY, comprised of over 25 high
+  school students. We participate in FIRST (For Inspiration and Recognition of
+  Science and Technology), a worldwide robotics competition.
+url: "https://tanxrobotics.com"
+# baseurl is set automatically by the GitHub Actions workflow when deploying.
+# Leave it empty here so local builds work at http://localhost:4000/
+baseurl: ""
+
+team_email: tanxrobotics@gmail.com
+team_number: 3003
+
+# Season shown on the Sponsorship page (matches a file in _data/sponsors/)
+current_sponsor_year: 2026
+
+markdown: kramdown
+kramdown:
+  # Lets you write Markdown inside HTML blocks such as <section> and <div>.
+  # Don't indent Markdown inside those blocks or it becomes a code block.
+  parse_block_html: true
+
+collections:
+  robots:
+    output: true
+    # Keeps the old Weebly URLs working, e.g. /2023-season.html
+    permalink: /:name-season.html
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: page
+  - scope:
+      path: ""
+      type: robots
+    values:
+      layout: robot
+      # highlights "Our Robots" in the menu while viewing a season page
+      nav_section: /our-robots.html
+
+exclude:
+  - README.md
+  - MAINTAINING.md
+  - CLAUDE.md
+  - Gemfile
+  - Gemfile.lock
+  - "*.sh"
+  - "*.bat"
+  - "*.ps1"
+  - scripts/
+  - vendor/
+  - .bundle/
+  - .claude/
+  - .jekyll-cache/

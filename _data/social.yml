@@ -1,0 +1,11 @@
+# Social links shown in the footer. `icon` must be one of: mail, youtube, instagram
+# (icons are drawn in _includes/social-icon.html).
+- name: Email
+  icon: mail
+  url: mailto:tanxrobotics@gmail.com
+- name: YouTube
+  icon: youtube
+  url: https://www.youtube.com/@TANX-fr6fx
+- name: Instagram
+  icon: instagram
+  url: https://www.instagram.com/tanxrobotics

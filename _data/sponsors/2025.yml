@@ -1,0 +1,51 @@
+# Sponsors for the 2026 season.
+#
+# Each level (see _data/sponsor_levels.yml) is a list of sponsors:
+#   name - required; shown as text when there is no logo, and used as alt text
+#   logo - optional; path to an image in assets/images/sponsors/
+#   url  - optional; makes the logo/name a link to the sponsor's website
+#   note - optional; small line under the sponsor, e.g. "In Memory of ..."
+#
+# A level with no sponsors (or an empty list) still shows its heading,
+# matching the current site. Remove the level key to hide it entirely.
+
+platinum:
+  - name: Canandaigua Academy
+    logo: /assets/images/sponsors/canandaigua-academy.png
+  - name: Xerox
+    logo: /assets/images/sponsors/xerox.png
+  - name: MiniTec Framing Systems
+    logo: /assets/images/sponsors/minitec.jpg
+  - name: STS
+    logo: /assets/images/sponsors/sts.png
+
+gold:
+  - name: Giuffre Family
+    logo: /assets/images/sponsors/giuffre-family.png
+
+silver:
+  - name: Lisk
+    logo: /assets/images/sponsors/lisk.png
+  - name: Charlie's Restaurants
+    logo: /assets/images/sponsors/charlies-restaurants.png
+  - name: Han-Tek
+    logo: /assets/images/sponsors/han-tek.png
+  - name: CMAC
+    logo: /assets/images/sponsors/cmac.png
+  - name: Nancy Gingold
+    logo: /assets/images/sponsors/nancy-gingold.png
+  - name: McAlpin Self Storage
+    logo: /assets/images/sponsors/mcalpin-self-storage.png
+  - name: Mobile Music
+    logo: /assets/images/sponsors/mobile-music.png
+  - name: In Memory of Mr. Havens
+
+bronze:
+  - name: Nolan's on Canandaigua Lake
+    logo: /assets/images/sponsors/nolans.png
+
+nickel:
+  - name: Matt Legge
+  - name: Tessy Plastics
+  - name: Canandaigua National Bank
+  - name: Chipotle

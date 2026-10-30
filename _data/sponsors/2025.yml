@@ -12,10 +12,13 @@
 platinum:
   - name: Canandaigua Academy
     logo: /assets/images/sponsors/canandaigua-academy.png
+    website: https://www.canandaiguaschools.org/academy-2
   - name: Xerox
     logo: /assets/images/sponsors/xerox.png
+    website: https://www.xerox.com/
   - name: MiniTec Framing Systems
     logo: /assets/images/sponsors/minitec.jpg
+    website: https://www.minitec.com/en/
   - name: STS
     logo: /assets/images/sponsors/sts.png
 
@@ -26,23 +29,30 @@ gold:
 silver:
   - name: Lisk
     logo: /assets/images/sponsors/lisk.png
+    website: https://www.lisk.com/
   - name: Charlie's Restaurants
     logo: /assets/images/sponsors/charlies-restaurants.png
+    website: https://www.charliesrestaurants.com/
   - name: Han-Tek
     logo: /assets/images/sponsors/han-tek.png
+    website: https://www.han-tek.com/
   - name: CMAC
     logo: /assets/images/sponsors/cmac.png
+    website: https://cmacevents.com
   - name: Nancy Gingold
     logo: /assets/images/sponsors/nancy-gingold.png
   - name: McAlpin Self Storage
     logo: /assets/images/sponsors/mcalpin-self-storage.png
+    website: https://mcalpinselfstorage.com
   - name: Mobile Music
     logo: /assets/images/sponsors/mobile-music.png
+    website: https://mblmusic.net/
   - name: In Memory of Mr. Havens
 
 bronze:
   - name: Nolan's on Canandaigua Lake
     logo: /assets/images/sponsors/nolans.png
+    website: https://www.nolansonthelake.com/
 
 nickel:
   - name: Matt Legge

@@ -226,6 +226,9 @@ figure { margin: 0 0 1.5em; text-align: center; }
   > :last-child:nth-child(odd) { grid-column: 1 / -1; }
 }
 .sponsor-names { margin: 0 0 1em; }
+.sponsor-name a { color: inherit; border: 0; }
+.sponsor-name a:hover { color: #fff; }
+.sponsor-item a { border: 0; }
 .sponsor-season { text-align: center; color: $text-muted; font-size: 1.15em; margin: 0 0 0.5em; }
 .sponsor-name {
   font-family: $font-heading;

@@ -3,7 +3,7 @@
 # Each level (see _data/sponsor_levels.yml) is a list of sponsors:
 #   name - required; shown as text when there is no logo, and used as alt text
 #   logo - optional; path to an image in assets/images/sponsors/
-#   url  - optional; makes the logo/name a link to the sponsor's website
+#   website - optional; makes the logo/name a link to the sponsor's website
 #   note - optional; small line under the sponsor, e.g. "In Memory of ..."
 #
 # A level with no sponsors (or an empty list) still shows its heading,

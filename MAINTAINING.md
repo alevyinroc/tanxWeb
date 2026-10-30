@@ -79,7 +79,7 @@ used in two places, with nothing else to configure:
    gold:
      - name: Acme Corp                                   # required
        logo: /assets/images/sponsors/acme.png            # optional
-       url: https://acme.example.com                     # optional link
+       website: https://acme.example.com                 # optional link
        note: In Memory of ...                            # optional
    ```
    Sponsors without a `logo` are listed by name.

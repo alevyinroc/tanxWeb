@@ -34,10 +34,10 @@
     <div class="sponsor-logos" style="grid-template-columns: repeat({{ level.columns | default: 2 }}, 1fr)">
       {%- for s in with_logo %}
       <div class="sponsor-item">
-        {% if s.url %}<a href="{{ s.url }}" target="_blank" rel="noopener">{% endif -%}
+        {% if s.website %}<a href="{{ s.website }}" target="_blank" rel="noopener">{% endif -%}
         <img src="{{ s.logo | relative_url }}" alt="{{ s.name | escape }}" title="{{ s.name | escape }}" loading="lazy"
              style="max-height: {{ level.logo_height }}px; max-width: min({{ level.logo_width }}px, 100%);">
-        {%- if s.url %}</a>{% endif %}
+        {%- if s.website %}</a>{% endif %}
         {%- if s.note %}<div class="sponsor-note">{{ s.note }}</div>{% endif %}
       </div>
       {%- endfor %}
@@ -47,7 +47,7 @@
     <div class="sponsor-names">
       {%- for s in names_only %}
       <div class="sponsor-name" style="font-size: {{ level.name_size }}">
-        {%- if s.url %}<a href="{{ s.url }}" target="_blank" rel="noopener">{{ s.name }}</a>{% else %}{{ s.name }}{% endif -%}
+        {%- if s.website %}<a href="{{ s.website }}" target="_blank" rel="noopener">{{ s.name }}</a>{% else %}{{ s.name }}{% endif -%}
       </div>
       {%- if s.note %}<div class="sponsor-note">{{ s.note }}</div>{% endif %}
       {%- endfor %}

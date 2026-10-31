@@ -1,9 +1,9 @@
-# Sponsors for the 2026 season.
+# Sponsors for the 2025 season.
 #
 # Each level (see _data/sponsor_levels.yml) is a list of sponsors:
 #   name - required; shown as text when there is no logo, and used as alt text
 #   logo - optional; path to an image in assets/images/sponsors/
-#   url  - optional; makes the logo/name a link to the sponsor's website
+#   website - optional; makes the logo/name a link to the sponsor's website
 #   note - optional; small line under the sponsor, e.g. "In Memory of ..."
 #
 # A level with no sponsors (or an empty list) still shows its heading,
@@ -24,7 +24,6 @@ platinum:
 
 gold:
   - name: Giuffre Family
-    logo: /assets/images/sponsors/giuffre-family.png
 
 silver:
   - name: Lisk
@@ -34,10 +33,10 @@ silver:
     logo: /assets/images/sponsors/charlies-restaurants.png
     website: https://www.charliesrestaurants.com/
   - name: Han-Tek
-    logo: /assets/images/sponsors/han-tek.png
+    logo: /assets/images/sponsors/Han-Tek.webp
     website: https://www.han-tek.com/
   - name: CMAC
-    logo: /assets/images/sponsors/cmac.png
+    logo: /assets/images/sponsors/CMAC-LOGO.webp
     website: https://cmacevents.com
   - name: Nancy Gingold
     logo: /assets/images/sponsors/nancy-gingold.png

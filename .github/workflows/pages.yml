@@ -13,6 +13,7 @@ on:
   workflow_dispatch:
 
 permissions:
+  actions: read     # deploy-pages reads the uploaded artifact
   contents: read
   pages: write
   id-token: write
@@ -27,7 +28,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
@@ -37,7 +38,7 @@ jobs:
 
       - name: Configure Pages
         id: pages
-        uses: actions/configure-pages@v5
+        uses: actions/configure-pages@v6
 
       - name: Build with Jekyll
         # base_path is "" on a custom domain, or "/<repo>" on <user>.github.io/<repo>
@@ -47,7 +48,7 @@ jobs:
 
       - name: Upload site artifact
         if: github.event_name != 'pull_request'
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v5
 
   deploy:
     if: github.event_name != 'pull_request'
@@ -59,4 +60,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5

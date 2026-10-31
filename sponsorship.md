@@ -19,7 +19,7 @@ banner:
 {% include sponsor-levels.html show_year=true %}
 </div>
 
-<hr>
+----
 
 ## **Why Donate?**
 

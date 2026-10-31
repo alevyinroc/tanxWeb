@@ -18,7 +18,7 @@ banner:
 - Introduce students to positive role models
 {: .lead}
 
-<hr>
+----
 
 {%- comment -%}
   TABS: each <div class="tab-panel" ...> becomes one tab. `data-title` is the
